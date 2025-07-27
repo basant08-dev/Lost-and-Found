@@ -1,6 +1,6 @@
-# Lost Place Found
+# Mapx
 
-**Lost Place Found** is a platform designed to help users report and find lost items or locations. Whether it's a misplaced phone, lost wallet, or even a forgotten trail, this app connects people who’ve lost something with those who’ve found it.
+**Mapx** is a platform designed to help users report and find lost items or locations. Whether it's a misplaced phone, lost wallet, or even a forgotten trail, this app connects people who’ve lost something with those who’ve found it.
 
 ---
 
