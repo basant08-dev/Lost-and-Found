@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="/culture/Css/about.css" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"
+    />
+    <title>Document</title>
+  </head>
+  <body>
+    <nav class="navbar">
+      <div class="logo">Mapx</div>
+      <div class="hamburger" id="hamburger">&#9776;</div>
+      <div class="nav-buttons">
+        <a href="home .html" class="nav-btn"
+          ><i class="fas fa-sign-in-alt"></i> Logout</a
+        >
+        <a href="Register.html" class="nav-btn"
+          ><i class="fas fa-user-plus"></i>About</a
+        >
+        <a href="Blog.html">
+          <button class="nav-btn submit-place">
+            <i class="fas fa-blog"></i> Blog
+          </button>
+        </a>
+      </div>
+    </nav>
+    <section class="about-section">
+      <h1>About Us</h1>
+
+      <h3>Our project</h3>
+      <p>Dear reader,</p>
+      <p>
+        in these lines we would like to tell you about Mapx, a project born in
+        2016 at the crossroads of two cultures. A Russian girl and an Italian
+        guy in the room of a flat in Passau (Germany) decide to combine the
+        useful with the amusing, giving birth to abandonedme, our first blog of
+        abandoned places. The project developed over the years in parallel with
+        our travels in order to share our every emotion, exploration and
+        adventure around the globe. We visit and document unexplored, off-road
+        places, learning about different ethnicities and peoples, experiencing
+        unknown spaces and living by surprises. We are guided by our spirit of
+        travellers without following any roads, searching for places that are
+        not marked on maps. We document every abandoned place with photos,
+        articles and research, bringing up forgotten pasts and stories.
+      </p>
+      <img
+        src="https://www.urbexstalker.com/wp-content/uploads/2022/05/photo_2018-06-23_09-48-20.jpg"
+        alt="Team working"
+      />
+
+      <p>Jacopo in an abandoned shopping centre in Thailand</p>
+      <img
+        src="https://www.urbexstalker.com/wp-content/uploads/2022/05/IMG_8599-1536x1024.jpg"
+        alt="Office space"
+      />
+
+      <p>Nastia driving a disused car in Vietnam</p>
+      <h2>Why stalker?</h2>
+      <p>
+        Of all the visitors to abandoned places, we have taken inspiration from
+        the ‘Mapx’, explorers featured in Andrei Tarkovsky‘s film of the
+        eponymous name – 1979 and the science fiction novel ‘Picnic by the
+        Roadside’ – 1972. They explore ‘shadow zones‘ with the utmost respect,
+        without invasion or tampering. They are ‘guests’ and explorers of
+        structures forged by the hand of man, often abandoned, in ruins,
+        forgotten, desolate or made off-limits. The places they visit are
+        numerous and of different types: disused industrial sites, uninhabitable
+        hospitals or asylums, abandoned military installations, fallen-down
+        factories, forgotten castles and monuments, uninhabited cottages, sewers
+        and drains, villas and basements. They move around in groups or
+        individually, what is ‘hidden’ and ‘invisible’ to the sight of any
+        passer-by is for them a new treasure to discover, a new adventure to
+        catapult themselves into, a new danger to confront.
+      </p>
+    </section>
+
+    <script>
+      document.addEventListener("DOMContentLoaded", function () {
+        const hamburger = document.querySelector(".hamburger");
+        const navButtons = document.querySelector(".nav-buttons");
+
+        hamburger.addEventListener("click", function () {
+          navButtons.classList.toggle("show");
+        });
+      });
+    </script>
+  </body>
+</html>

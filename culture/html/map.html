@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="/culture/Css/map.css" />
+    <link rel="stylesheet" href="https://unpkg.com/leaflet/dist/leaflet.css" />
+
+    <title>Document</title>
+  </head>
+  <body>
+    <div id="map"></div>
+    <a href="home .html" class="map-back-button">⬅ Back</a>
+    <div class="controls">
+      <div class="search-container">
+        <input
+          type="text"
+          id="searchBox"
+          placeholder="Search a place..."
+          oninput="debouncedSearch()"
+        />
+      </div>
+
+      <div class="layer-buttons">
+        <button onclick="setLayer('satellite')">Satellite</button>
+        <button onclick="setLayer('topo')">Topographic</button>
+        <button onclick="setLayer('dark')">Dark</button>
+      </div>
+    </div>
+
+    <script src="https://unpkg.com/leaflet/dist/leaflet.js"></script>
+    <script>
+      const map = L.map("map").setView([22.9734, 78.6569], 5); // Centered on India
+      // Create and insert search input beside zoom controls
+      const searchContainer = L.DomUtil.create(
+        "div",
+        "search-container leaflet-control"
+      );
+      searchContainer.innerHTML = `
+  <input type="text" id="searchBox" placeholder="Search a place..." oninput="debouncedSearch()" />
+`;
+
+      L.DomEvent.disableClickPropagation(searchContainer);
+
+      map
+        .getContainer()
+        .querySelector(".leaflet-top.leaflet-left")
+        .appendChild(searchContainer);
+
+      const tileLayers = {
+        default: L.tileLayer(
+          "https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
+        ),
+        satellite: L.tileLayer(
+          "https://{s}.google.com/vt/lyrs=s&x={x}&y={y}&z={z}",
+          {
+            subdomains: ["mt0", "mt1", "mt2", "mt3"],
+          }
+        ),
+        topo: L.tileLayer("https://{s}.tile.opentopomap.org/{z}/{x}/{y}.png"),
+        dark: L.tileLayer(
+          "https://{s}.basemaps.cartocdn.com/dark_all/{z}/{x}/{y}{r}.png"
+        ),
+      };
+
+      tileLayers.dark.addTo(map);
+
+      function setLayer(name) {
+        map.eachLayer((layer) => map.removeLayer(layer));
+        tileLayers[name].addTo(map);
+      }
+
+      let searchTimeout = null;
+
+      function debouncedSearch() {
+        clearTimeout(searchTimeout);
+        searchTimeout = setTimeout(() => {
+          const query = document.getElementById("searchBox").value;
+          if (query.length < 3) return;
+          searchPlace(query);
+        }, 500);
+      }
+
+      function searchPlace(query) {
+        fetch(
+          `https://nominatim.openstreetmap.org/search?format=json&q=${encodeURIComponent(
+            query
+          )}`
+        )
+          .then((res) => res.json())
+          .then((data) => {
+            if (data.length === 0) return;
+
+            const result = data[0];
+            const lat = parseFloat(result.lat);
+            const lon = parseFloat(result.lon);
+
+            map.setView([lat, lon], 14);
+            L.marker([lat, lon]).addTo(map).bindPopup(query).openPopup();
+
+            showNearbyPOIs(lat, lon);
+          })
+          .catch((error) => {
+            console.error("Search error:", error);
+          });
+      }
+
+      function showNearbyPOIs(lat, lng) {
+        const radius = 70; // meters
+        const query = `
+    [out:json][timeout:25];
+    (
+      node["amenity"~"school|hospital|restaurant|cafe|bank|police|university|pharmacy"](around:${radius},${lat},${lng});
+      way["amenity"~"school|hospital|restaurant|cafe|bank|police|university|pharmacy"](around:${radius},${lat},${lng});
+      relation["amenity"~"school|hospital|restaurant|cafe|bank|police|university|pharmacy"](around:${radius},${lat},${lng});
+    );
+    out center;
+  `;
+
+        fetch("https://overpass-api.de/api/interpreter", {
+          method: "POST",
+          body: query,
+        })
+          .then((res) => res.json())
+          .then((data) => {
+            if (!data.elements.length) {
+              console.log("No POIs found nearby.");
+              return;
+            }
+
+            data.elements.forEach((el) => {
+              const latLng =
+                el.type === "node"
+                  ? [el.lat, el.lon]
+                  : [el.center?.lat, el.center?.lon];
+
+              if (latLng[0] && latLng[1]) {
+                const name = el.tags.name || el.tags.amenity || "POI";
+                L.marker(latLng).addTo(map).bindPopup(name);
+              }
+            });
+          })
+          .catch((error) => {
+            console.error("POI fetch error:", error);
+          });
+      }
+    </script>
+    <script></script>
+  </body>
+</html>

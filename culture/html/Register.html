@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="/culture/Css/Register.css" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"
+    />
+    <title>Document</title>
+  </head>
+  <body>
+    <nav class="navbar">
+      <div class="logo">Mapx</div>
+      <div class="hamburger" id="hamburger">&#9776;</div>
+      <div class="nav-buttons">
+        <a href="Login.html" class="nav-btn"
+          ><i class="fas fa-sign-in-alt"></i> Login</a
+        >
+        <a href="Register.html" class="nav-btn"
+          ><i class="fas fa-user-plus"></i> Register</a
+        >
+        <a href="Login.html"
+          ><button class="nav-btn submit-place">
+            <i class="fas fa-blog"></i> Blog
+          </button></a
+        >
+      </div>
+    </nav>
+    <section>
+      <h2>Create Account</h2>
+      <form>
+        <label for="username">Username</label>
+        <input type="text" id="username" name="username" required />
+        <small
+          >Required. 150 characters or fewer. Letters, digits and @/./+/-/_
+          only.</small
+        >
+
+        <label for="password">Password</label>
+        <input type="password" id="password" name="password" required />
+        <small
+          >Your password can’t be too similar to your other personal
+          information.</small
+        >
+        <small>Your password must contain at least 8 characters.</small>
+        <small>Your password can’t be a commonly used password.</small>
+        <small>Your password can’t be entirely numeric.</small>
+
+        <label for="password-confirm">Password confirmation</label>
+        <input
+          type="password"
+          id="password-confirm"
+          name="password-confirm"
+          required
+        />
+        <small>Enter the same password as before, for verification.</small>
+
+        <div class="password-box">
+          <strong>Password Requirements:</strong>
+          <ul>
+            <li>Minimum 8 characters</li>
+            <li>At least one uppercase letter</li>
+            <li>At least one lowercase letter</li>
+            <li>At least one number</li>
+            <li>At least one special character (!@#$%^&*)</li>
+          </ul>
+        </div>
+
+        <button type="button" class="btn" id="create-account-btn">
+          Create account
+        </button>
+
+        <div class="separator">
+          <span>OR</span>
+        </div>
+
+        <div class="signin">
+          <span>Already have an account?</span>
+          <a href="Login.html">
+            <button type="button">Sign In</button>
+          </a>
+        </div>
+      </form>
+    </section>
+    <footer class="form-footer">
+      <a href="Notice.html">Legal Notice</a>
+    </footer>
+
+    <script>
+      document
+        .getElementById("create-account-btn")
+        .addEventListener("click", function () {
+          const username = document.getElementById("username").value.trim();
+          const password = document.getElementById("password").value;
+          const confirmPassword =
+            document.getElementById("password-confirm").value;
+
+          const isLengthValid = password.length >= 8;
+          const hasUppercase = /[A-Z]/.test(password);
+          const hasLowercase = /[a-z]/.test(password);
+          const hasNumber = /[0-9]/.test(password);
+          const hasSpecialChar = /[!@#$%^&*]/.test(password);
+          const passwordsMatch = password === confirmPassword;
+
+          if (
+            !username ||
+            !isLengthValid ||
+            !hasUppercase ||
+            !hasLowercase ||
+            !hasNumber ||
+            !hasSpecialChar ||
+            !passwordsMatch
+          ) {
+            alert(
+              "Please make sure all fields are filled correctly and password meets all requirements."
+            );
+          } else {
+            window.location.href = "Login.html";
+          }
+        });
+    </script>
+
+    <script>
+      document.addEventListener("DOMContentLoaded", function () {
+        const hamburger = document.querySelector(".hamburger");
+        const navButtons = document.querySelector(".nav-buttons");
+
+        hamburger.addEventListener("click", function () {
+          navButtons.classList.toggle("show");
+        });
+      });
+    </script>
+  </body>
+</html>

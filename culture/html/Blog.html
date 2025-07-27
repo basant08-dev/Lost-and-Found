@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="/culture/Css/Blog.css" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"
+    />
+    <title>Document</title>
+  </head>
+  <body>
+    <nav class="navbar">
+      <div class="logo">Mapx</div>
+      <div class="hamburger" id="hamburger">&#9776;</div>
+      <div class="nav-buttons">
+        <a href="home .html" class="nav-btn"
+          ><i class="fas fa-sign-in-alt"></i> Logout</a
+        >
+        <a href="about.html" class="nav-btn"><i class=""></i>About</a>
+        <a href="Blog.html">
+          <button class="nav-btn submit-place">
+            <i class="fas fa-blog"></i> Blog
+          </button>
+        </a>
+      </div>
+    </nav>
+    <section class="blog-section">
+      <h2>Blog</h2>
+      <div class="blog-container">
+        <div class="blog-box">
+          <img
+            src="https://forgottentrail.com/wp-content/uploads/2024/01/yana-vandeborne-UfsQdoZBD_U-unsplash-1024x681.jpg"
+            alt="Blog Image 1"
+          />
+          <div class="text">
+            <h3>Urban Exploration is a Photographer’s Paradise</h3>
+            <p>
+              Urbex photography is an amazing opportunity for photographers.
+              It's about discovering the beauty and…
+            </p>
+            <a href="detail.html"
+              ><span id="read" class="read-more">Read More</span></a
+            >
+          </div>
+        </div>
+        <div class="blog-box">
+          <img
+            src="https://forgottentrail.com/wp-content/uploads/2024/01/bruno-van-der-kraan-U4N1Hwr7KEg-unsplash-1024x774.jpg"
+            alt="Blog Image 2"
+          />
+          <div class="text">
+            <h3>
+              The Thrill of Urban Exploration: An Adventure Beyond the Beaten
+              Path
+            </h3>
+            <p>
+              Urban exploration, or urbex, is more than just a hobby; it's a
+              quest for…
+            </p>
+            <a href="detail.html"
+              ><span id="read" class="read-more">Read More</span></a
+            >
+          </div>
+        </div>
+        <div class="blog-box">
+          <img
+            src="https://forgottentrail.com/wp-content/uploads/2024/01/peter-herrmann-RDnn6PTyupw-unsplash-scaled-1024x682.jpg"
+            alt="Blog Image 3"
+          />
+          <div class="text">
+            <h3>Urban Exploration: A Guide to the Hidden Wonders of Germany</h3>
+            <p>
+              Urban exploration, or Urbex, isn't just a hobby; it's a journey
+              into our cities'…
+            </p>
+            <a href="detail.html"
+              ><span id="read" class="read-more">Read More</span></a
+            >
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <script>
+      document.addEventListener("DOMContentLoaded", function () {
+        const hamburger = document.querySelector(".hamburger");
+        const navButtons = document.querySelector(".nav-buttons");
+
+        hamburger.addEventListener("click", function () {
+          navButtons.classList.toggle("show");
+        });
+      });
+    </script>
+  </body>
+</html>
