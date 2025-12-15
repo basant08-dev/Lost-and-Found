@@ -1,14 +1,27 @@
-# Mapx
+🌍 MapX – Discover Abandoned Places
 
-**Mapx** is a platform designed to help users report and find lost items or locations. Whether it's a misplaced phone, lost wallet, or even a forgotten trail, this app connects people who’ve lost something with those who’ve found it.
+MapX is a web-based project designed to help users explore and discover abandoned and unexplored places through an interactive map interface. The project is built using HTML, Tailwind CSS, JavaScript, and Leaflet.js to provide a clean UI and smooth map experience. Users can view locations on the map, explore details, and interact with markers in an intuitive way. This project focuses on performance, simplicity, and responsive design, making it accessible across different devices. MapX is ideal for travel enthusiasts, explorers, and learners who want to understand map-based web applications.
 
----
+✨ Features
 
-## 🚀 Features
+Interactive map powered by Leaflet.js
 
-- 📍 Report lost or found items with location details
-- 🔍 Search through reported items
-- 🗂️ Categorize items (e.g. electronics, pets, documents)
-- 📸 Upload images for better identification
-- 🛡️ Privacy protection for user details
-- 🔔 Notifications for matches
+Clean and responsive UI using Tailwind CSS
+
+User-friendly and lightweight design
+
+Easy to extend with new locations and features
+
+🛠️ Tech Stack
+
+HTML
+
+Tailwind CSS
+
+JavaScript
+
+Leaflet.js
+
+🚀 Purpose
+
+This project was created for learning, practice, and showcasing frontend development skills with real-world map integration.
