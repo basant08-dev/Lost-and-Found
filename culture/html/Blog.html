@@ -3,94 +3,187 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link rel="stylesheet" href="/culture/Css/Blog.css" />
+    <script src="https://cdn.tailwindcss.com"></script>
+
     <link
       rel="stylesheet"
       href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"
     />
-    <title>Document</title>
+
+    <title>Blog</title>
+
+    <style>
+      @layer utilities {
+        .bg-custom {
+          background-color: rgba(56, 36, 13, 0.717);
+        }
+        .blog-bg {
+          background-color: #31353b;
+        }
+      }
+    </style>
   </head>
-  <body>
-    <nav class="navbar">
-      <div class="logo">Mapx</div>
-      <div class="hamburger" id="hamburger">&#9776;</div>
-      <div class="nav-buttons">
-        <a href="home .html" class="nav-btn"
-          ><i class="fas fa-sign-in-alt"></i> Logout</a
+
+  <body class="font-sans bg-custom m-10 md:m-16">
+    <!-- NAVBAR -->
+    <nav
+      class="fixed top-0 left-0 w-full z-50 bg-[#121212] text-white shadow-xl border-b border-white/10 px-6 py-4 flex justify-between items-center"
+    >
+      <div class="text-2xl font-bold text-[#00e676]">
+        <a href="logout.html" class="text-2xl font-bold text-green-400">Mapx</a>
+      </div>
+
+      <!-- Desktop Buttons -->
+      <div class="hidden md:flex items-center gap-4 nav-buttons">
+        <a
+          href="home.html"
+          class="flex items-center gap-2 text-[#00e676] px-4 py-2 rounded-full hover:scale-110 transition font-semibold"
         >
-        <a href="about.html" class="nav-btn"><i class=""></i>About</a>
+          <i class="fas fa-sign-in-alt"></i> Logout
+        </a>
+
+        <a
+          href="about.html"
+          class="flex items-center gap-2 text-[#00e676] px-4 py-2 rounded-full hover:scale-110 transition font-semibold"
+        >
+          About
+        </a>
+
         <a href="Blog.html">
-          <button class="nav-btn submit-place">
+          <button
+            class="px-4 py-2 rounded-full text-[#00e676] hover:scale-110 transition font-semibold flex items-center gap-2"
+          >
             <i class="fas fa-blog"></i> Blog
           </button>
         </a>
       </div>
+
+      <!-- Hamburger -->
+      <div
+        id="hamburger"
+        class="md:hidden text-[#00e676] text-3xl cursor-pointer"
+      >
+        &#9776;
+      </div>
     </nav>
-    <section class="blog-section">
-      <h2>Blog</h2>
-      <div class="blog-container">
-        <div class="blog-box">
+
+    <!-- Mobile Dropdown -->
+    <div
+      id="mobileMenu"
+      class="hidden md:hidden flex-col bg-[#121212] mt-[70px] px-6 py-4 space-y-4 rounded-lg shadow-lg absolute right-4 top-0"
+    >
+      <a
+        href="home.html"
+        class="text-[#00e676] font-semibold flex items-center gap-2 mb-5"
+      >
+        <i class="fas fa-sign-in-alt"></i> Logout
+      </a>
+
+      <a href="about.html" class="text-[#00e676] font-semibold">About</a>
+
+      <a
+        href="Blog.html"
+        class="text-[#00e676] font-semibold flex items-center gap-2"
+      >
+        <i class="fas fa-blog"></i> Blog
+      </a>
+    </div>
+
+    <!-- BLOG SECTION -->
+    <section class="text-center mt-32">
+      <h2 class="text-[55px] md:text-[65px] font-semibold text-white mb-10">
+        Blog
+      </h2>
+
+      <!-- Blog Container -->
+      <div class="flex flex-wrap justify-center gap-6">
+        <!-- BLOG BOX -->
+        <div
+          class="blog-bg border-4 border-[#31353b] rounded-xl shadow-lg p-5 w-full sm:w-[48%] lg:w-[31%]"
+        >
           <img
             src="https://forgottentrail.com/wp-content/uploads/2024/01/yana-vandeborne-UfsQdoZBD_U-unsplash-1024x681.jpg"
-            alt="Blog Image 1"
+            class="w-full h-[200px] object-cover rounded-md"
           />
-          <div class="text">
-            <h3>Urban Exploration is a Photographer’s Paradise</h3>
-            <p>
+
+          <div class="text-left mt-4 space-y-2 leading-[1.8em]">
+            <h3 class="text-[#ebbb84] text-[20px] font-bold">
+              Urban Exploration is a Photographer’s Paradise
+            </h3>
+            <p class="text-[17px] text-white">
               Urbex photography is an amazing opportunity for photographers.
               It's about discovering the beauty and…
             </p>
-            <a href="detail.html"
-              ><span id="read" class="read-more">Read More</span></a
+            <a
+              href="detail.html"
+              class="text-[#ebbbe4] mt-2 inline-block hover:underline"
             >
+              Read More
+            </a>
           </div>
         </div>
-        <div class="blog-box">
+
+        <!-- BLOG BOX -->
+        <div
+          class="blog-bg border-4 border-[#31353b] rounded-xl shadow-lg p-5 w-full sm:w-[48%] lg:w-[31%]"
+        >
           <img
             src="https://forgottentrail.com/wp-content/uploads/2024/01/bruno-van-der-kraan-U4N1Hwr7KEg-unsplash-1024x774.jpg"
-            alt="Blog Image 2"
+            class="w-full h-[200px] object-cover rounded-md"
           />
-          <div class="text">
-            <h3>
-              The Thrill of Urban Exploration: An Adventure Beyond the Beaten
-              Path
+
+          <div class="text-left mt-4 space-y-2 leading-[1.8em]">
+            <h3 class="text-[#ebbb84] text-[20px] font-bold">
+              The Thrill of Urban Exploration
             </h3>
-            <p>
+            <p class="text-[17px] text-white">
               Urban exploration, or urbex, is more than just a hobby; it's a
               quest for…
             </p>
-            <a href="detail.html"
-              ><span id="read" class="read-more">Read More</span></a
+            <a
+              href="detail.html"
+              class="text-[#ebbbe4] mt-2 inline-block hover:underline"
             >
+              Read More
+            </a>
           </div>
         </div>
-        <div class="blog-box">
+
+        <!-- BLOG BOX -->
+        <div
+          class="blog-bg border-4 border-[#31353b] rounded-xl shadow-lg p-5 w-full sm:w-[48%] lg:w-[31%]"
+        >
           <img
             src="https://forgottentrail.com/wp-content/uploads/2024/01/peter-herrmann-RDnn6PTyupw-unsplash-scaled-1024x682.jpg"
-            alt="Blog Image 3"
+            class="w-full h-[200px] object-cover rounded-md"
           />
-          <div class="text">
-            <h3>Urban Exploration: A Guide to the Hidden Wonders of Germany</h3>
-            <p>
-              Urban exploration, or Urbex, isn't just a hobby; it's a journey
-              into our cities'…
+
+          <div class="text-left mt-4 space-y-2 leading-[1.8em]">
+            <h3 class="text-[#ebbb84] text-[20px] font-bold">
+              Hidden Wonders of Germany
+            </h3>
+            <p class="text-[17px] text-white">
+              Urban exploration isn't just a hobby; it's a journey into our
+              cities'…
             </p>
-            <a href="detail.html"
-              ><span id="read" class="read-more">Read More</span></a
+            <a
+              href="detail.html"
+              class="text-[#ebbbe4] mt-2 inline-block hover:underline"
             >
+              Read More
+            </a>
           </div>
         </div>
       </div>
     </section>
 
+    <!-- SCRIPT -->
     <script>
-      document.addEventListener("DOMContentLoaded", function () {
-        const hamburger = document.querySelector(".hamburger");
-        const navButtons = document.querySelector(".nav-buttons");
+      const hamburger = document.getElementById("hamburger");
+      const mobileMenu = document.getElementById("mobileMenu");
 
-        hamburger.addEventListener("click", function () {
-          navButtons.classList.toggle("show");
-        });
+      hamburger.addEventListener("click", () => {
+        mobileMenu.classList.toggle("hidden");
       });
     </script>
   </body>

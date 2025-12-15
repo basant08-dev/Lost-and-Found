@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"/>
+  <title>Mapx Era</title>
+</head>
+<body class="bg-gray-900 font-sans text-gray-200">
+
+  <!-- Navbar -->
+  <nav class="fixed top-0 left-0 w-full flex justify-between items-center px-8 py-4 bg-gray-900 border-b border-gray-700 shadow-md z-50">
+    <div class="text-2xl font-bold text-green-500">Mapx</div>
+    
+    <div class="hidden md:flex gap-4 items-center">
+      <a href="Login.html" class="flex items-center gap-2 text-green-500 font-bold px-4 py-2 rounded-full hover:scale-110 transition-transform">
+        <i class="fas fa-sign-in-alt hidden sm:inline"></i> Login
+      </a>
+      <a href="Register.html" class="flex items-center gap-2 text-green-500 font-bold px-4 py-2 rounded-full hover:scale-110 transition-transform">
+        <i class="fas fa-user-plus hidden sm:inline"></i> Register
+      </a>
+      <a href="Login.html" class="flex items-center gap-2 text-green-500 font-bold px-4 py-2 rounded-full hover:scale-110 transition-transform">
+        <i class="fas fa-blog hidden sm:inline"></i> Blog
+      </a>
+    </div>
+
+    <div class="md:hidden text-green-500 text-2xl cursor-pointer" id="hamburger">&#9776;</div>
+  </nav>
+
+  <!-- Mobile Nav -->
+  <div class="hidden flex-col absolute top-16 right-5 bg-gray-900 p-4 rounded-lg shadow-lg md:hidden" id="mobileNav">
+    <a href="Login.html" class="text-green-500 font-bold px-4 py-2 rounded-full hover:scale-105 transition-transform">Login</a>
+    <a href="Register.html" class="text-green-500 font-bold px-4 py-2 rounded-full hover:scale-105 transition-transform">Register</a>
+    <a href="Login.html" class="text-green-500 font-bold px-4 py-2 rounded-full hover:scale-105 transition-transform">Blog</a>
+  </div>
+
+  <!-- Hero Section -->
+  <section class="flex flex-col items-center justify-center text-center pt-28 pb-20 px-4 border-b border-gray-700 bg-gray-900">
+    <h1 class="text-4xl md:text-5xl lg:text-6xl font-bold mb-4">Mapx Era – Discover Abandoned Places</h1>
+    <p class="text-gray-400 max-w-xl text-base md:text-lg mb-8">
+      Explore forgotten locations, document urban decay, and join a community of urban explorers
+    </p>
+    <button id="startExploring" class="px-8 py-3 bg-gradient-to-r from-orange-500 to-yellow-500 text-white rounded-full font-semibold shadow-lg hover:bg-green-500 transition-colors">
+      Start Exploring
+    </button>
+  </section>
+
+  <!-- Cards Section -->
+  <section class="flex flex-wrap justify-center gap-8 py-12 px-4 bg-gray-900 text-left mb-12">
+    <div class="w-72 md:w-80 bg-white/5 backdrop-blur-lg border border-white/10 rounded-2xl p-8 shadow-md transform transition-transform hover:-translate-y-2">
+      <h2 class="text-xl font-bold text-gray-200 mb-2">Effortless Discoveries</h2>
+      <p class="text-gray-400 text-base">Effortless search, vibrant community, real-time updates</p>
+    </div>
+    <div class="w-72 md:w-80 bg-white/5 backdrop-blur-lg border border-white/10 rounded-2xl p-8 shadow-md transform transition-transform hover:-translate-y-2">
+      <h2 class="text-xl font-bold text-gray-200 mb-2">Share & Connect</h2>
+      <p class="text-gray-400 text-base">
+        Share finds, engage, access vast databases easily, Comprehensive database and real-time data updates.
+      </p>
+    </div>
+    <div class="w-72 md:w-80 bg-white/5 backdrop-blur-lg border border-white/10 rounded-2xl p-8 shadow-md transform transition-transform hover:-translate-y-2">
+      <h2 class="text-xl font-bold text-gray-200 mb-2">Global Discovery Hub</h2>
+      <p class="text-gray-400 text-base">Worldwide lost places, instant updates, at fingertips</p>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="fixed bottom-0 left-0 w-full flex justify-between items-center px-8 h-16 bg-gray-900 text-white shadow-inner">
+    <div class="flex gap-4">
+      <a href="https://twitter.com" target="_blank" class="hover:text-blue-400"><i class="fab fa-twitter text-xl"></i></a>
+      <a href="https://instagram.com" target="_blank" class="hover:text-pink-500"><i class="fab fa-instagram text-xl"></i></a>
+    </div>
+    <div>
+      <a href="Notice.html">
+        <button class="px-4 py-2 bg-gradient-to-r from-orange-500 to-yellow-500 text-white rounded-full font-semibold hover:bg-white hover:text-gray-900 transition-colors text-sm">Notice</button>
+      </a>
+    </div>
+  </footer>
+
+  <!-- Scripts -->
+  <script>
+    // Hamburger toggle
+    const hamburger = document.getElementById("hamburger");
+    const mobileNav = document.getElementById("mobileNav");
+
+    hamburger.addEventListener("click", () => {
+      mobileNav.classList.toggle("hidden");
+    });
+
+    // Start Exploring button logic
+    const startBtn = document.getElementById("startExploring");
+
+    startBtn.addEventListener("click", () => {
+      const currentUser = localStorage.getItem("currentUser");
+      if(currentUser){
+        window.location.href = "map.html"; // user is logged in
+      } else {
+        window.location.href = "Login.html"; // not logged in
+      }
+    });
+  </script>
+
+</body>
+</html>

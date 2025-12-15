@@ -3,37 +3,69 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link rel="stylesheet" href="/culture/Css/about.css" />
+    <script src="https://cdn.tailwindcss.com"></script>
+
     <link
       rel="stylesheet"
       href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"
     />
-    <title>Document</title>
+
+    <title>About</title>
   </head>
-  <body>
-    <nav class="navbar">
-      <div class="logo">Mapx</div>
-      <div class="hamburger" id="hamburger">&#9776;</div>
-      <div class="nav-buttons">
-        <a href="home .html" class="nav-btn"
-          ><i class="fas fa-sign-in-alt"></i> Logout</a
+
+  <body class="bg-gray-100 font-sans">
+    <!-- NAVBAR -->
+    <nav
+      class="fixed top-0 left-0 w-full z-50 flex justify-between items-center px-6 py-4 bg-[#121212] shadow-lg border-b border-white/10"
+    >
+      <div class="text-2xl font-bold text-green-400">
+        <a href="logout.html" class="text-2xl font-bold text-green-400">Mapx</a>
+      </div>
+
+      <div
+        class="text-3xl text-green-400 cursor-pointer md:hidden"
+        id="hamburger"
+      >
+        &#9776;
+      </div>
+
+      <div
+        class="hidden md:flex items-center gap-4 transition-all"
+        id="navLinks"
+      >
+        <a
+          href="home.html"
+          class="flex items-center gap-2 text-green-400 font-bold px-4 py-2 rounded-full hover:scale-110 transition"
         >
-        <a href="Register.html" class="nav-btn"
-          ><i class="fas fa-user-plus"></i>About</a
+          <i class="fas fa-sign-in-alt"></i> Logout
+        </a>
+
+        <a
+          href="Register.html"
+          class="flex items-center gap-2 text-green-400 font-bold px-4 py-2 rounded-full hover:scale-110 transition"
         >
+          <i class="fas fa-user-plus"></i> About
+        </a>
+
         <a href="Blog.html">
-          <button class="nav-btn submit-place">
+          <button
+            class="flex items-center gap-2 text-green-400 font-bold px-4 py-2 rounded-full hover:scale-110 transition"
+          >
             <i class="fas fa-blog"></i> Blog
           </button>
         </a>
       </div>
     </nav>
-    <section class="about-section">
-      <h1>About Us</h1>
 
-      <h3>Our project</h3>
-      <p>Dear reader,</p>
-      <p>
+    <!-- ABOUT SECTION -->
+    <section class="max-w-3xl mx-auto mt-28 p-6 leading-relaxed">
+      <h1 class="text-4xl font-bold text-center mb-6">About Us</h1>
+
+      <h3 class="text-xl font-semibold mt-8">Our project</h3>
+
+      <p class="mt-4">Dear reader,</p>
+
+      <p class="mt-4">
         in these lines we would like to tell you about Mapx, a project born in
         2016 at the crossroads of two cultures. A Russian girl and an Italian
         guy in the room of a flat in Passau (Germany) decide to combine the
@@ -47,20 +79,24 @@
         not marked on maps. We document every abandoned place with photos,
         articles and research, bringing up forgotten pasts and stories.
       </p>
+
       <img
         src="https://www.urbexstalker.com/wp-content/uploads/2022/05/photo_2018-06-23_09-48-20.jpg"
-        alt="Team working"
+        class="w-full rounded-lg my-6"
       />
 
-      <p>Jacopo in an abandoned shopping centre in Thailand</p>
+      <p class="mt-2">Jacopo in an abandoned shopping centre in Thailand</p>
+
       <img
         src="https://www.urbexstalker.com/wp-content/uploads/2022/05/IMG_8599-1536x1024.jpg"
-        alt="Office space"
+        class="w-full rounded-lg my-6"
       />
 
-      <p>Nastia driving a disused car in Vietnam</p>
-      <h2>Why stalker?</h2>
-      <p>
+      <p class="mt-2">Nastia driving a disused car in Vietnam</p>
+
+      <h2 class="text-2xl font-bold mt-10">Why Mapx?</h2>
+
+      <p class="mt-4">
         Of all the visitors to abandoned places, we have taken inspiration from
         the ‘Mapx’, explorers featured in Andrei Tarkovsky‘s film of the
         eponymous name – 1979 and the science fiction novel ‘Picnic by the
@@ -78,13 +114,23 @@
       </p>
     </section>
 
+    <!-- SCRIPT -->
     <script>
-      document.addEventListener("DOMContentLoaded", function () {
-        const hamburger = document.querySelector(".hamburger");
-        const navButtons = document.querySelector(".nav-buttons");
+      document.addEventListener("DOMContentLoaded", () => {
+        const hamburger = document.getElementById("hamburger");
+        const navLinks = document.getElementById("navLinks");
 
-        hamburger.addEventListener("click", function () {
-          navButtons.classList.toggle("show");
+        hamburger.addEventListener("click", () => {
+          navLinks.classList.toggle("hidden");
+          navLinks.classList.toggle("flex");
+          navLinks.classList.toggle("flex-col");
+          navLinks.classList.toggle("absolute");
+          navLinks.classList.toggle("right-6");
+          navLinks.classList.toggle("top-20");
+          navLinks.classList.toggle("bg-[#121212]");
+          navLinks.classList.toggle("p-4");
+          navLinks.classList.toggle("rounded-lg");
+          navLinks.classList.toggle("shadow-xl");
         });
       });
     </script>

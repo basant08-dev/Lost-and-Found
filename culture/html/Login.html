@@ -1,97 +1,81 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link rel="stylesheet" href="/culture/Css/Login.css" />
-    <link
-      rel="stylesheet"
-      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"
-    />
-    <title>Login</title>
-  </head>
-  <body>
-    <nav class="navbar">
-      <div class="logo">Mapx</div>
-      <div class="hamburger" id="hamburger">&#9776;</div>
-      <div class="nav-buttons">
-        <a href="Login.html" class="nav-btn"
-          ><i class="fas fa-sign-in-alt"></i> Login</a
-        >
-        <a href="Register.html" class="nav-btn"
-          ><i class="fas fa-user-plus"></i> Register</a
-        >
-        <a href="Login.html"
-          ><button class="nav-btn submit-place">
-            <i class="fas fa-blog"></i> Blog
-          </button></a
-        >
-      </div>
-    </nav>
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"/>
+  <title>Login</title>
+</head>
+<body class="bg-[#121212] font-[Segoe_UI] pt-[150px] px-4 flex justify-center items-center">
 
-    <section class="login-section">
-      <h2 class="form-title">Login to Your Account</h2>
-      <form id="loginForm">
-        <label for="username" class="form-label">Username</label>
-        <input
-          type="text"
-          id="username"
-          name="username"
-          class="form-input"
-          required
-        />
+  <nav class="fixed top-0 left-0 w-full z-[1000] flex justify-between items-center px-8 py-4 bg-[#121212] border-b border-white/10 shadow-lg text-white">
+    <div class="text-2xl font-bold text-[#00e676]">Mapx</div>
+    <div class="hidden md:flex items-center gap-4 nav-buttons">
+      <a href="Login.html" class="flex items-center gap-2 text-[#00e676] px-4 py-2 rounded-full text-sm font-semibold hover:scale-110 transition"><i class="fas fa-sign-in-alt"></i> Login</a>
+      <a href="Register.html" class="flex items-center gap-2 text-[#00e676] px-4 py-2 rounded-full text-sm font-semibold hover:scale-110 transition"><i class="fas fa-user-plus"></i> Register</a>
+      <a href="Login.html"><button class="flex items-center gap-2 text-[#00e676] px-4 py-2 rounded-full text-sm font-semibold hover:scale-110 transition bg-transparent"><i class="fas fa-blog"></i> Blog</button></a>
+    </div>
+    <div id="hamburger" class="md:hidden text-[#00e676] text-3xl cursor-pointer">&#9776;</div>
+  </nav>
 
-        <label for="password" class="form-label">Password</label>
-        <input
-          type="password"
-          id="password"
-          name="password"
-          class="form-input"
-          required
-        />
+  <section class="bg-white/5 border border-white/20 rounded-2xl p-12 max-w-[450px] w-full shadow-[0_20px_40px_rgba(0,0,0,0.3)] relative overflow-hidden ">
+    <h2 class="text-3xl font-bold text-center mb-8 bg-gradient-to-br from-white to-gray-300 bg-clip-text text-transparent">Login to Your Account</h2>
 
-        <button type="submit" class="login-button">Login</button>
-      </form>
+    <form id="loginForm">
+      <label class="block mb-2 text-gray-300">Username</label>
+      <input type="text" id="username" required class="w-full px-5 py-3 bg-white/10 border border-white/20 rounded-xl text-base mb-4 focus:bg-white focus:text-black transition" />
+      <label class="block mb-2 text-gray-300">Password</label>
+      <input type="password" id="password" required class="w-full px-5 py-3 bg-white/10 border border-white/20 rounded-xl text-base mb-4 focus:bg-white focus:text-black transition" />
 
-      <div class="or-separator"><span>OR</span></div>
+      <button type="submit" class="w-full py-4 mt-3 text-white font-semibold text-lg rounded-xl bg-gradient-to-br from-[#ff6b35] to-[#f7931e] shadow-[0_4px_15px_rgba(255,107,53,0.3)] hover:-translate-y-1 transition">Login</button>
 
-      <div class="signup-row">
-        <span>Don't have an account?</span>
-        <a href="Register.html" class="create-account-link">Create Account</a>
-      </div>
-    </section>
+      <button id="forgot-password" type="button" class="mt-4 text-sm text-orange-400 hover:underline">Forgot Password?</button>
+    </form>
 
-    <footer class="form-footer">
-      <a href="Notice.html">Legal Notice</a>
-    </footer>
+    <div class="text-center text-gray-400 text-sm mt-6">
+      Don't have an account? <a href="Register.html" class="text-[#ff6b35] font-semibold hover:underline">Create Account</a>
+    </div>
+  </section>
 
-    <script>
-      document
-        .getElementById("loginForm")
-        .addEventListener("submit", function (e) {
-          e.preventDefault(); // Prevent actual form submission
+  <script>
+    document.getElementById("hamburger").addEventListener("click", function () {
+      document.querySelector(".nav-buttons").classList.toggle("flex");
+      document.querySelector(".nav-buttons").classList.toggle("hidden");
+    });
 
-          const username = document.getElementById("username").value.trim();
-          const password = document.getElementById("password").value.trim();
+    // Login logic: direct redirect
+    document.getElementById("loginForm").addEventListener("submit", function(e){
+      e.preventDefault();
+      const username = document.getElementById("username").value.trim();
+      const password = document.getElementById("password").value;
+      const users = JSON.parse(localStorage.getItem("users") || "{}");
 
-          if (!username || !password) {
-            alert("Please fill in both username and password.");
-            return;
-          }
+      if(users[username] && users[username] === password){
+        window.location.href = "logout.html"; // Direct redirect
+      } else {
+        alert("Invalid username or password.");
+      }
+    });
 
-          window.location.href = "logout.html";
-        });
-    </script>
+    // Forgot password
+    document.getElementById("forgot-password").addEventListener("click", function(){
+      const username = prompt("Enter your username:");
+      const users = JSON.parse(localStorage.getItem("users") || "{}");
 
-    <script>
-      document.addEventListener("DOMContentLoaded", function () {
-        const hamburger = document.querySelector(".hamburger");
-        const navButtons = document.querySelector(".nav-buttons");
-
-        hamburger.addEventListener("click", function () {
-          navButtons.classList.toggle("show");
-        });
-      });
-    </script>
-  </body>
+      if(users[username]){
+        const newPassword = prompt("Enter your new password (min 8 chars, upper, lower, number, special char):");
+        if(!newPassword || newPassword.length<8 || !/[A-Z]/.test(newPassword) || !/[a-z]/.test(newPassword) || !/[0-9]/.test(newPassword) || !/[!@#$%^&*]/.test(newPassword)){
+          alert("Password does not meet requirements!");
+          return;
+        }
+        users[username] = newPassword;
+        localStorage.setItem("users", JSON.stringify(users));
+        alert("Password updated successfully!");
+      } else {
+        alert("Username not found!");
+      }
+    });
+  </script>
+</body>
 </html>

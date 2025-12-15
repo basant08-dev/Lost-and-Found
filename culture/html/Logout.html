@@ -1,89 +1,144 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link rel="stylesheet" href="/culture/Css/Logout.css" />
-    <link
-      rel="stylesheet"
-      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"
-    />
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
-    <title>Document</title>
-  </head>
-  <body>
-    <nav class="navbar">
-      <div class="logo">Mapx</div>
-      <div class="hamburger" id="hamburger">&#9776;</div>
-      <div class="nav-buttons">
-        <a href="home .html" class="nav-btn"
-          ><i class="fas fa-sign-in-alt"></i> Logout</a
-        >
-        <a href="about.html" class="nav-btn"><i class=""></i>About</a>
-        <a href="Blog.html">
-          <button class="nav-btn submit-place">
-            <i class="fas fa-blog"></i> Blog
-          </button>
-        </a>
+  <!-- Tailwind CDN -->
+  <script src="https://cdn.tailwindcss.com"></script>
+
+  <!-- Font Awesome -->
+  <link
+    rel="stylesheet"
+    href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"
+  />
+
+  <title>Mapx Era</title>
+</head>
+
+<body class="font-[Segoe_UI,Tahoma,Geneva,Verdana,sans-serif] bg-[#f5f5f5]">
+
+  <!-- NAVBAR -->
+  <nav class="fixed top-0 left-0 w-full z-[1000]
+              flex justify-between items-center
+              px-8 py-4
+              bg-[#121212]
+              border-b border-white/10
+              text-white
+              shadow-lg">
+
+    <!-- Logo -->
+    <div class="text-[1.8rem] font-bold text-[#00e676]">
+      Mapx
+    </div>
+
+    <!-- Hamburger -->
+    <div id="hamburger" class="md:hidden text-[28px] text-[#00e676] cursor-pointer">
+      &#9776;
+    </div>
+
+    <!-- Nav Buttons -->
+    <div id="navButtons"
+         class="hidden md:flex items-center gap-4
+                md:static absolute
+                top-[60px] right-5
+                bg-[#121212] md:bg-transparent
+                p-4 md:p-0
+                rounded-xl md:rounded-none
+                shadow-xl md:shadow-none
+                flex-col md:flex-row">
+
+      <a href="home.html"
+         class="flex items-center gap-2
+                text-[#00e676] font-bold text-[0.95rem]
+                px-4 py-2 rounded-full
+                transition-all duration-300
+                hover:scale-110">
+        <i class="fas fa-sign-in-alt"></i> Logout
+      </a>
+
+      <a href="about.html"
+         class="flex items-center gap-2
+                text-[#00e676] font-bold text-[0.95rem]
+                px-4 py-2 rounded-full
+                transition-all duration-300
+                hover:scale-110">
+        About
+      </a>
+
+      <a href="Blog.html">
+        <button
+          class="flex items-center gap-2
+                 text-[#00e676] font-bold text-[0.95rem]
+                 px-4 py-2 rounded-full
+                 transition-all duration-300
+                 hover:scale-110">
+          <i class="fas fa-blog"></i> Blog
+        </button>
+      </a>
+    </div>
+  </nav>
+
+  <!-- HERO SECTION -->
+  <div class="hidden flex-col absolute top-16 right-5 bg-gray-900 p-4 rounded-lg shadow-lg md:hidden" id="mobileNav">
+      <a href="Login.html" class="text-green-500 font-bold px-4 py-2 rounded-full hover:scale-105 transition-transform">Login</a>
+      <a href="Register.html" class="text-green-500 font-bold px-4 py-2 rounded-full hover:scale-105 transition-transform">Register</a>
+      <a href="Login.html" class="text-green-500 font-bold px-4 py-2 rounded-full hover:scale-105 transition-transform">Blog</a>
+    </div>
+
+    <!-- Hero Section -->
+    <section class="flex flex-col items-center justify-center text-center pt-28 pb-20 px-4 border-b border-gray-700 bg-gray-900">
+      <h1 class="text-4xl md:text-5xl lg:text-6xl font-bold mb-4 text-gray-200">Mapx Era – Discover Abandoned Places</h1>
+      <p class="text-gray-400 max-w-xl text-base md:text-lg mb-8">
+        Explore forgotten locations, document urban decay, and join a community of urban explorers
+      </p>
+      <a href="map.html">
+        <button class="px-8 py-3 bg-gradient-to-r from-orange-500 to-yellow-500 text-white rounded-full font-semibold shadow-lg hover:bg-green-500 transition-colors">
+          Start Exploring
+        </button>
+      </a>
+    </section>
+
+    <!-- Cards Section -->
+    <section class="flex flex-wrap justify-center gap-8 py-12 px-4 bg-gray-900 text-left mb-12">
+      <div class="w-72 md:w-80 bg-white/5 backdrop-blur-lg border border-white/10 rounded-2xl p-8 shadow-md transform transition-transform hover:-translate-y-2">
+        <h2 class="text-xl font-bold text-gray-200 mb-2">Effortless Discoveries</h2>
+        <p class="text-gray-400 text-base">Effortless search, vibrant community, real-time updates</p>
       </div>
-    </nav>
-    <main>
-      <section class="hero-section">
-        <h1>Mapx Era – Discover Abandoned Places</h1>
-        <p>
-          Explore forgotten locations, document urban decay, and join a
-          community of urban explorers
+      <div class="w-72 md:w-80 bg-white/5 backdrop-blur-lg border border-white/10 rounded-2xl p-8 shadow-md transform transition-transform hover:-translate-y-2">
+        <h2 class="text-xl font-bold text-gray-200 mb-2">Share & Connect</h2>
+        <p class="text-gray-400 text-base">
+          Share finds, engage, access vast databases easily, Comprehensive database and real-time data updates.
         </p>
-        <a href="map.html">
-          <button class="explore-btn">Start Exploring</button>
-        </a>
-      </section>
-
-      <!-- Cards Section -->
-      <section class="cards-section">
-        <div class="card">
-          <h1>Effortless Discoveries</h1>
-          <p>Effortless search, vibrant community, real-time updates</p>
-        </div>
-        <div class="card">
-          <h1>Share & Connect</h1>
-          <p>
-            Share finds, engage, access vast databases easily, Comprehensive
-            database and real-time data updates.
-          </p>
-        </div>
-        <div class="card">
-          <h1>Global Discovery Hub</h1>
-          <p>Worldwide lost places, instant updates, at fingertips</p>
-        </div>
-      </section>
-    </main>
-    <!-- Footer -->
-    <footer class="footer">
-      <div class="footer-left">
-        <a href="https://twitter.com" target="_blank"
-          ><i class="fab fa-twitter"></i
-        ></a>
-        <a href="https://instagram.com" target="_blank"
-          ><i class="fab fa-instagram"></i
-        ></a>
       </div>
-      <div class="footer-right">
+      <div class="w-72 md:w-80 bg-white/5 backdrop-blur-lg border border-white/10 rounded-2xl p-8 shadow-md transform transition-transform hover:-translate-y-2">
+        <h2 class="text-xl font-bold text-gray-200 mb-2">Global Discovery Hub</h2>
+        <p class="text-gray-400 text-base">Worldwide lost places, instant updates, at fingertips</p>
+      </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="fixed bottom-0 left-0 w-full flex justify-between items-center px-8 h-16 bg-gray-900 text-white shadow-inner">
+      <div class="flex gap-4">
+        <a href="https://twitter.com" target="_blank" class="hover:text-blue-400"><i class="fab fa-twitter text-xl"></i></a>
+        <a href="https://instagram.com" target="_blank" class="hover:text-pink-500"><i class="fab fa-instagram text-xl"></i></a>
+      </div>
+      <div>
         <a href="Notice.html">
-          <button class="legal-btn">Notice</button>
+          <button class="px-4 py-2 bg-gradient-to-r from-orange-500 to-yellow-500 text-white rounded-full font-semibold hover:bg-white hover:text-gray-900 transition-colors text-sm">Notice</button>
         </a>
       </div>
     </footer>
 
-    <script>
-      document.addEventListener("DOMContentLoaded", function () {
-        const hamburger = document.querySelector(".hamburger");
-        const navButtons = document.querySelector(".nav-buttons");
+  <!-- JS (Hamburger) -->
+  <script>
+    const hamburger = document.getElementById("hamburger");
+    const navButtons = document.getElementById("navButtons");
 
-        hamburger.addEventListener("click", function () {
-          navButtons.classList.toggle("show");
-        });
-      });
-    </script>
-  </body>
+    hamburger.addEventListener("click", () => {
+      navButtons.classList.toggle("hidden");
+    });
+  </script>
+
+</body>
 </html>
